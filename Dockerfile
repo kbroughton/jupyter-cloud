@@ -1,0 +1,1 @@
+aws-jupyter-scipy.dockerfile
