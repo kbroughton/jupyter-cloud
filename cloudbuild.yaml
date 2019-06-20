@@ -9,7 +9,7 @@
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', '$PROJECT_ID:latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$COMMIT_SHA', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:staging.latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$SHORT_SHA', '.']
+  args: ['build', '-f', 'aws-jupyter-scipy.dockerfile', '-t', '$PROJECT_ID:latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$COMMIT_SHA', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:staging.latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$SHORT_SHA', '.']
 
 images: 
  - 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$COMMIT_SHA'
