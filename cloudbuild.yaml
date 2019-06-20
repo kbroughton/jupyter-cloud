@@ -1,0 +1,19 @@
+# https://cloud.google.com/cloud-build/docs/build-config?hl=en_US&_ga=2.135353777.-1233813363.1540342738
+# https://cloud.google.com/cloud-build/docs/configuring-builds/build-test-deploy-artifacts
+# docker-compose buildfile.yaml https://medium.com/@kevinsimper/building-docker-images-with-docker-compose-on-google-cloud-container-builder-292b1eb3fd31
+# Gitlab to Cloud Source Mirroring https://cloud.google.com/solutions/mirroring-gitlab-repositories-to-cloud-source-repositories
+
+# Test gcloud build locally: https://cloud.google.com/cloud-build/docs/build-debug-locally
+# gcloud components install cloud-build-local
+# cloud-build-local --substitutions=REPO_NAME="scoutsuite",COMMIT_SHA=latest .
+
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', '$PROJECT_ID:latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$COMMIT_SHA', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:staging.latest', '-t', 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$SHORT_SHA', '.']
+
+images: 
+ - 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$COMMIT_SHA'
+ - 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:$SHORT_SHA'
+ - 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:staging.latest'
+ - 'gcr.io/$PROJECT_ID/aws-jupyter-scipy:latest'
+
