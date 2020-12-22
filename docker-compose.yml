@@ -11,10 +11,10 @@ services:
      - ~/neo4j/logs:/logs
 
   jupyter:
-   image: jupyter/scipy-notebook
+   image: jupyter-cloud
    ports:
     - 8889:8888
    volumes:
      - ${PWD}/work:/home/jovyan/work
-   entrypoint: ["jupyter", "notebook", "--port=8888", "--ip=0.0.0.0"]
+   entrypoint: ["jupyter", "notebook", "--port=8888", "--ip=0.0.0.0", --allow-root]
   

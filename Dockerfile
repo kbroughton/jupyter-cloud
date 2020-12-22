@@ -7,8 +7,11 @@ RUN apt update && apt -y install \
     vim \
     curl
 
-RUN pip install awscli --upgrade && \
-    pip install jmespath pyyaml
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \ 
+    ./aws/install
+
+RUN pip install jmespath pyyaml
 
 RUN complete -C `which aws_completer` aws
 
