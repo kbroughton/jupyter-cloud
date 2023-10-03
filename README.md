@@ -4,6 +4,9 @@ This is a simple addition to the jupyter/scipy-notebook making it cloud friendly
 * Add support for cloud providers to jupyter notebooks (aws, gcloud, az variants) plus common tools for cloud analytics.
 * Adds docker-compose.yml to mount in notebooks to work/templates
 
+We use the notebook frontend by pinning jupyter/scipy-notebook:6.4.12 instead of the default jupyter-lab that comes with
+the newer scipy-notebooks  because it was too hard to get extensions working with Lab.
+ 
 It is designed to be run from a docker-compose.yml which includes many other cloud tools.
 Data from each tool should be mounted into the jupyter notebook by adding a line like
 

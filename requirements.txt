@@ -1,0 +1,14 @@
+autopep8
+cloudflare
+bidict
+ghapi
+google-cloud-resource-manager
+google-cloud-billing
+google-cloud-logging
+google-cloud-bigquery[bqstorage,pandas]
+jmespath
+jupyter_contrib_nbextensions
+openpyxl
+pydata-google-auth
+pyyaml
+nbdev
